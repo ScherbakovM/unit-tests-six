@@ -75,4 +75,44 @@ public class MainTest {
         List<Double> numbers = new ArrayList<>();
         assertThrows(NoSuchElementException.class, () -> listManager.calculateAverage(numbers));
     }
+    @Test
+    @DisplayName("Тестирование обработки отрицательных чисел")
+    public void testNegativeNumbers() {
+        String input = "-1 -2 -3 -4 -5";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        Scanner scanner = new Scanner(System.in);
+        inputManager.setScanner(scanner);
+
+        List<Double> numbers = inputManager.getNumbersFromUser();
+        assertEquals(5, numbers.size());
+        assertEquals(-1.0, numbers.get(0), 0.001);
+        assertEquals(-2.0, numbers.get(1), 0.001);
+        assertEquals(-3.0, numbers.get(2), 0.001);
+        assertEquals(-4.0, numbers.get(3), 0.001);
+        assertEquals(-5.0, numbers.get(4), 0.001);
+    }
+
+    @Test
+    @DisplayName("Тестирование на случайный ввод")
+    public void testRandomInput() {
+        String input = "abc 123 def";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        Scanner scanner = new Scanner(System.in);
+        inputManager.setScanner(scanner);
+
+        List<Double> numbers = inputManager.getNumbersFromUser();
+        assertEquals(1, numbers.size());
+    }
+
+    @Test
+    @DisplayName("Тестирование обработки больших чисел")
+    public void testLargeNumbers() {
+        String input = "100000000000000000000 200000000000000000000";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        Scanner scanner = new Scanner(System.in);
+        inputManager.setScanner(scanner);
+
+        List<Double> numbers = inputManager.getNumbersFromUser();
+        assertEquals(2, numbers.size());
+    }
 }
