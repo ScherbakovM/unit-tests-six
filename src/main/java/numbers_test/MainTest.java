@@ -4,6 +4,7 @@ import numbers.InputManager;
 import numbers.ListManager;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 
 import java.util.*;
 import java.io.ByteArrayInputStream;
@@ -21,6 +22,7 @@ public class MainTest {
     }
 
     @Test
+    @DisplayName("Тестирование получения чисел от пользователя")
     public void testGetNumbersFromUser() {
         String input = "1 2 3 4 5";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
@@ -37,12 +39,15 @@ public class MainTest {
     }
 
     @Test
+    @DisplayName("Тестирование расчета среднего значения")
     public void testCalculateAverage() {
         List<Double> numbers = Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0);
         double average = listManager.calculateAverage(numbers);
         assertEquals(3.0, average, 0.001);
     }
+
     @Test
+    @DisplayName("Тестирование недопустимого ввода")
     public void testInvalidInput() {
         String input = "not a number";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
@@ -54,6 +59,7 @@ public class MainTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
+    @DisplayName("Тестирование пустого ввода")
     public void testEmptyInput() {
         String input = "";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
@@ -64,6 +70,7 @@ public class MainTest {
     }
 
     @Test
+    @DisplayName("Тестирование расчета среднего значения для пустого списка")
     public void testCalculateAverageEmptyList() {
         List<Double> numbers = new ArrayList<>();
         assertThrows(NoSuchElementException.class, () -> listManager.calculateAverage(numbers));
