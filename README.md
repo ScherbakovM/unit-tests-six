@@ -2,8 +2,8 @@
 ## [Код тестов](https://github.com/ScherbakovM/unit-tests-six/tree/master/src/main/java/numbers_test)
 
 ## Покрытие тестами    
-![image](https://github.com/ScherbakovM/unit-tests-six/assets/109952823/10bb3425-c8e8-44ca-b237-5c1501c386c6)
 
+![Screenshot_1](https://github.com/ScherbakovM/unit-tests-six/assets/109952823/0097ee31-2b2c-49a1-8dd5-05e4792c9487)
 
 
 
